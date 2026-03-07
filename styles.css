@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Comfortaa', cursive;
+  background-color: #f0f4ff;
+  color: #333;
+  line-height: 1.7;
+}
+
+header {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  padding: 50px 20px;
+  text-align: center;
+  border-radius: 0 0 40px 40px;
+}
+
+header h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+nav {
+  margin-top: 20px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 12px;
+  font-size: 0.95rem;
+  opacity: 0.85;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s;
+}
+
+nav a:hover {
+  opacity: 1;
+  border-bottom: 2px solid white;
+}
+
+main {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+section {
+  background-color: white;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.15);
+}
+
+#skills {
+  grid-row: span 2;
+}
+
+h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #667eea;
+  margin-bottom: 15px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #f0f4ff;
+}
+
+h3 {
+  font-size: 1rem;
+  color: #764ba2;
+  margin: 15px 0 8px;
+  font-weight: 700;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+li {
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+
+a {
+  color: #667eea;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #764ba2;
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border-radius: 40px 40px 0 0;
+  font-size: 0.9rem;
+  margin-top: 20px;
+}
