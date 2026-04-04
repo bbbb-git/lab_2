@@ -8,6 +8,7 @@
   <title>CV — Глинська Ярина</title>
 </head>
 <body>
+  <button id="theme-btn">☀️</button>
 
   <header>
     <h1>Глинська Ярина</h1>
@@ -64,9 +65,87 @@
 
   </main>
 
+  <div style="max-width: 1000px; margin: 0 auto; padding: 0 20px 40px;">
+    <section id="reviews">
+      <h2>Відгуки</h2>
+      <div id="comments-list" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;"></div>
+    </section>
+  </div>
+
   <footer>
     <p>© 2026 Глинська Ярина</p>
   </footer>
+<!-- Модальне вікно -->
+<div id="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:1000; justify-content:center; align-items:center;">
+  <div style="background:white; border-radius:20px; padding:40px; max-width:500px; width:90%; position:relative;">
+    <button onclick="document.getElementById('modal').style.display='none'" style="position:absolute; top:15px; right:20px; background:none; border:none; font-size:1.5rem; cursor:pointer; color:#764ba2;">✕</button>
+    <h2 style="color:#667eea; margin-bottom:20px;">Зворотній зв'язок</h2>
+    <form action="https://formspree.io/f/xnjogekw" method="POST">
+      <input name="name" type="text" placeholder="Ім'я" required style="width:100%; padding:10px; margin-bottom:12px; border:2px solid #f0f4ff; border-radius:10px; font-family:inherit;"><br>
+      <input name="email" type="email" placeholder="Email" required style="width:100%; padding:10px; margin-bottom:12px; border:2px solid #f0f4ff; border-radius:10px; font-family:inherit;"><br>
+      <input name="phone" type="tel" placeholder="Номер телефону" style="width:100%; padding:10px; margin-bottom:12px; border:2px solid #f0f4ff; border-radius:10px; font-family:inherit;"><br>
+      <textarea name="message" placeholder="Ваше повідомлення" rows="4" style="width:100%; padding:10px; margin-bottom:16px; border:2px solid #f0f4ff; border-radius:10px; font-family:inherit; resize:none;"></textarea><br>
+      <button type="submit" style="width:100%; padding:12px; background:linear-gradient(135deg, #667eea, #764ba2); color:white; border:none; border-radius:10px; font-family:inherit; font-size:1rem; cursor:pointer;">Відправити</button>
+    </form>
+  </div>
+</div>
+<script>
+  localStorage.setItem('userAgent', navigator.userAgent);
+  localStorage.setItem('platform', navigator.platform);
+  localStorage.setItem('language', navigator.language);
+  localStorage.setItem('screenWidth', screen.width);
+  localStorage.setItem('screenHeight', screen.height);
 
+  const footer = document.querySelector('footer');
+  const info = document.createElement('div');
+  info.style.fontSize = '0.75rem';
+  info.style.opacity = '0.7';
+  info.style.marginTop = '10px';
+  info.innerHTML = `
+    <p>Браузер: ${localStorage.getItem('userAgent')}</p>
+    <p>Платформа: ${localStorage.getItem('platform')}</p>
+    <p>Мова: ${localStorage.getItem('language')}</p>
+    <p>Екран: ${localStorage.getItem('screenWidth')}×${localStorage.getItem('screenHeight')}</p>
+  `;
+  footer.appendChild(info);
+
+  fetch('https://jsonplaceholder.typicode.com/posts/5/comments')
+    .then(response => response.json())
+    .then(comments => {
+      const list = document.getElementById('comments-list');
+      comments.forEach(comment => {
+        const card = document.createElement('div');
+        card.style.padding = '12px';
+        card.style.background = '#f0f4ff';
+        card.style.borderRadius = '10px';
+        card.innerHTML = `
+          <strong>${comment.name}</strong>
+          <p style="font-size:0.8rem; color:#764ba2">${comment.email}</p>
+          <p style="font-size:0.9rem; margin-top:6px">${comment.body}</p>
+        `;
+        list.appendChild(card);
+      });
+    });
+    // Показати модальне вікно через 1 хвилину
+setTimeout(() => {
+  document.getElementById('modal').style.display = 'flex';
+}, 60000);
+
+// Автоматичне перемикання теми по часу
+const hour = new Date().getHours();
+if (hour < 7 || hour >= 21) {
+  document.body.classList.add('dark');
+  document.getElementById('theme-btn').textContent = '☀️';
+} else {
+  document.getElementById('theme-btn').textContent = '🌙';
+}
+
+// Ручне перемикання
+document.getElementById('theme-btn').addEventListener('click', () => {
+  document.body.classList.toggle('dark');
+  const isDark = document.body.classList.contains('dark');
+  document.getElementById('theme-btn').textContent = isDark ? '☀️' : '🌙';
+});
+</script>
 </body>
 </html>

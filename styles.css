@@ -109,3 +109,50 @@ footer {
   font-size: 0.9rem;
   margin-top: 20px;
 }
+
+body.dark {
+  background-color: #1a1a2e;
+  color: #e0e0e0;
+}
+
+body.dark header {
+  background: linear-gradient(135deg, #2d2d5e, #1a1a2e);
+}
+
+body.dark section {
+  background-color: #16213e;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+body.dark footer {
+  background: linear-gradient(135deg, #2d2d5e, #1a1a2e);
+}
+
+body.dark #reviews section {
+  background-color: #16213e;
+}
+
+body.dark .card {
+  background: #0f3460 !important;
+}
+
+#theme-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  z-index: 999;
+}
+
+body.dark #comments-list > div {
+  background: #0f3460 !important;
+  color: #e0e0e0;
+}
