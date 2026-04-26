@@ -13,7 +13,7 @@ function Reviews({ isDark }) {
   const cardBg = isDark ? 'bg-gray-700 text-gray-100' : 'bg-purple-50';
 
   return (
-    <section className={`${bg} rounded-2xl p-6 shadow-md`}>
+    <section id="reviews" className={`${bg} rounded-2xl p-6 shadow-md`}>
       <h2 className="text-xl font-bold text-violet-500 mb-4 pb-2 border-b-2 border-purple-50">Відгуки</h2>
       <div className="grid grid-cols-2 gap-4">
         {comments.map(comment => (
