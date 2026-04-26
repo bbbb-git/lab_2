@@ -6,7 +6,9 @@ function Header() {
         <a href="#skills" className="text-white opacity-80 hover:opacity-100 border-b-2 border-transparent hover:border-white transition-all">Навички</a>
         <a href="#education" className="text-white opacity-80 hover:opacity-100 border-b-2 border-transparent hover:border-white transition-all">Освіта</a>
         <a href="#contacts" className="text-white opacity-80 hover:opacity-100 border-b-2 border-transparent hover:border-white transition-all">Контакти</a>
+        <a href="#reviews" className="text-white opacity-80 hover:opacity-100 border-b-2 border-transparent hover:border-white transition-all">Відгуки</a>
       </nav>
+
     </header>
   );
 }
